@@ -1,5 +1,5 @@
 import { RxHamburgerMenu } from "react-icons/rx";
-import { Table7 } from "../shared/Table7";
+import { Table7 } from "./Table7";
 
 function Navbar() {
   return (
