@@ -17,7 +17,7 @@ function TodoList() {
       const newItemObj = {
         id: Math.random().toString(),
         content: newItem,
-        color: "lightblue",
+        color: "#242424",
       };
       setItems([...items, newItemObj]);
       setNewItem("");
@@ -35,6 +35,7 @@ function TodoList() {
     if (newItem.trim() && editingIndex !== null) {
       const updatedItems = [...items];
       updatedItems[editingIndex].content = newItem;
+      updatedItems[editingIndex].color = "#242424"; 
       setItems(updatedItems);
       setEditingIndex(null);
       setNewItem("");
@@ -78,7 +79,7 @@ function TodoList() {
       {!isAdding && (
         <button
           onClick={() => setIsAdding(true)}
-          className="p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 mb-4"
+          className="p-3 bg-[#242424] text-white rounded-lg hover:bg-[#242424] focus:outline-none focus:ring-2 focus:ring-[#242424] mb-4"
         >
           Add Todo
         </button>
@@ -91,17 +92,17 @@ function TodoList() {
             onChange={handleInputChange}
             onKeyDown={handleKeyPress}
             placeholder="Yangi vazifa..."
-            className="p-3 w-3/4 mb-3 border text-gray-500 rounded-lg border-gray-300 outline-none"
+            className="p-3 w-3/4 bg-[#242424] text-gray-500 rounded-lg outline-none"
           />
           <button
             onClick={editingIndex !== null ? handleSaveEdit : handleAddItem}
-            className="p-3 bg-green-700 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-600"
+            className="p-3 bg-[#242424] text-white rounded-lg focus:outline-none"
           >
             {editingIndex !== null ? "Saqlash" : "Qo'shish"}
           </button>
         </div>
       )}
-      <div className="p-4 rounded-lg min-h-[200px] max-h-[250px] overflow-y-auto custom-scrollbar">
+      <div className="p-4 rounded-lg min-h-[200px] max-h-[280px] overflow-y-auto scrollbar-hide">
         {items.map((item, index) => (
           <div
             key={item.id}
@@ -116,19 +117,11 @@ function TodoList() {
             <div className="flex justify-between items-center">
               <span>{item.content}</span>
               <div className="flex space-x-2">
-                <button
-                  onClick={() => handleEditItem(index)}
-                >
-                  <FaEdit 
-                  className="text-yellow-500 hover:text-yellow-600"
-                  />
+                <button onClick={() => handleEditItem(index)}>
+                  <FaEdit className="text-yellow-500 hover:text-yellow-600" />
                 </button>
-                <button
-                  onClick={() => handleDeleteItem(index)}
-                >
-                  <FaTrash
-                    className="text-red-500 hover:text-red-600"
-                  />
+                <button onClick={() => handleDeleteItem(index)}>
+                  <FaTrash className="text-red-500 hover:text-red-600" />
                 </button>
               </div>
             </div>
