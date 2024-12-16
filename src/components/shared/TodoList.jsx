@@ -76,29 +76,32 @@ function TodoList() {
 
   return (
     <div className="max-w-xs mx-auto p-4">
-      {!isAdding && (
-        <button
-          onClick={() => setIsAdding(true)}
-          className="p-3 bg-[#242424] text-white rounded-lg hover:bg-[#242424] focus:outline-none focus:ring-2 focus:ring-[#242424] mb-4"
-        >
-          Add Todo
-        </button>
-      )}
+      <div className="flex items-center gap-20">
+        {!isAdding && <h1>My To Do Items</h1>}
+        {!isAdding && (
+          <button
+            onClick={() => setIsAdding(true)}
+            className="p-3 bg-[#242424] text-white rounded-lg hover:bg-[#242424] focus:outline-none focus:ring-2 focus:ring-[#242424]"
+          >
+            Add Todo
+          </button>
+        )}
+      </div>
       {isAdding && (
-        <div className="mb-4 text-center flex items-center space-x-3">
+        <div className=" text-center flex items-center space-x-3">
           <input
             type="text"
             value={newItem}
             onChange={handleInputChange}
             onKeyDown={handleKeyPress}
-            placeholder="Yangi vazifa..."
+            placeholder="New task..."
             className="p-3 w-3/4 bg-[#242424] text-gray-500 rounded-lg outline-none"
           />
           <button
             onClick={editingIndex !== null ? handleSaveEdit : handleAddItem}
             className="p-3 bg-[#242424] text-white rounded-lg focus:outline-none"
           >
-            {editingIndex !== null ? "Saqlash" : "Qo'shish"}
+            {editingIndex !== null ? "Save" : "Cast"}
           </button>
         </div>
       )}
@@ -117,11 +120,11 @@ function TodoList() {
             <div className="flex justify-between items-center">
               <span>{item.content}</span>
               <div className="flex space-x-2">
-                <button onClick={() => handleEditItem(index)}>
-                  <FaEdit className="text-yellow-500 hover:text-yellow-600" />
+                <button onClick={() => handleEditItem(index)} className="p-2 rounded-lg bg-blue-500 hover:bg-blue-600 focus:outline-none">
+                  <FaEdit className="text-white hover:text-white" />
                 </button>
-                <button onClick={() => handleDeleteItem(index)}>
-                  <FaTrash className="text-red-500 hover:text-red-600" />
+                <button onClick={() => handleDeleteItem(index)} className="p-2 rounded-lg bg-red-500 hover:bg-red-600 focus:outline-none">
+                  <FaTrash />
                 </button>
               </div>
             </div>
