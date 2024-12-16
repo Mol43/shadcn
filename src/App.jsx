@@ -1,10 +1,11 @@
-import Navbar from './components/pages/Navbar'
+import Navbar from './components/shared/Navbar'
 import { Table1 } from './components/shared/Table1'
 import { Table2 } from './components/shared/Table2'
 import { Table3 } from './components/shared/Table3'
 import { Table4 } from './components/shared/Table4'
 import { Table5 } from './components/shared/Table5'
 import { Table6 } from './components/shared/Table6'
+import TodoList from './components/shared/TodoList'
 import { Button } from './components/ui/button'
 function App() {
   return (
@@ -29,7 +30,9 @@ function App() {
         <div className="border border-gray-400 h-auto rounded-md col-span-5 bg-[#242424]">
           <Table6 />
         </div>
-        <div className="border border-gray-400 h-28 rounded-md col-span-3 bg-[#242424]"></div>
+        <div className="border border-gray-400 h-auto rounded-md col-span-3 bg-[#242424]">
+          <TodoList />
+        </div>
         <div className="border border-gray-400 h-28 rounded-md col-span-6 bg-[#242424]"></div>
         <div className="border border-gray-400 h-28 rounded-md col-span-6 bg-[#242424]"></div>
         <div className="border border-gray-400 h-28 rounded-md col-span-4 bg-[#242424]"></div>
